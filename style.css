@@ -1,0 +1,33 @@
+h2, p {
+    text-align: center;
+    width: 55%;
+}
+
+h2 {
+    position: absolute;
+}
+
+p {
+    margin-top: 5rem;
+}
+
+button {
+    position: inherit;
+}
+
+.jumbotron {
+    background-color: white;
+}
+
+#highscores {
+    float: left;
+    padding-left: 1rem;
+    position: absolute;
+    margin-top: -4rem;
+}
+
+#time {
+    float: right;
+    padding-right: 1rem;
+    margin-top: -4rem;
+}
