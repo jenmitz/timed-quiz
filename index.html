@@ -6,44 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css"> 
-    <title>Document</title>
+    <title>Timed Quiz</title>
 </head>
 <body>
-    <a href="#" id="highscores">
+
+    <!--highscores and time-->
+    
+    <div id="highscores">
         <p>
             View Highscores
         </p>
-    </a>
-    <a href="#" id="time">
-        <p>
-            Time: 0
-        </p>
-    </a>
     </div>
 
+    <span id="time">Time left: 60</span>
 
-    <!--landing page with start button, time, and highscores link-->
+
+    <!--directions and start button-->
     <div class="jumbotron">
         <div class="d-flex justify-content-center">
-            <h2>XYZ Quiz Challenge</h2>
-            <p>Answer the following questions as quickly and accurately as possible within the alotted time. 
-                All incorrect answers will result in a time-loss penalty of 10 seconds. Your final 
-                score is determined by how much time is left on the clock. Good luck.
+            <h2>Stardew Valley Quiz (Timed)</h2>
+            <p>You have one minute to answer the following questions as quickly and accurately as possible. 
+                All incorrect answers will result in a time-loss penalty of 10 seconds.
+                Your final score is determined by how much time is left on the clock. Good luck.
             </p>
         </div>
         <div class="d-flex justify-content-center">
-            <button type="button" class="btn btn-success"> Start Quiz </button>
+            <button type="button" id="startQuiz" class="btn btn-success"> Start Quiz </button>
         </div>
     </div>
 
-
-    <!--blank buttons for each option-->
-    <button type="button" id="buttonOne" class="btn btn-success"> Button 1 </button>
-    <button type="button" id="buttonTwo" class="btn btn-success"> Button 2 </button>    
-    <button type="button" id="buttonThree" class="btn btn-success"> Button 3 </button>    
-    <button type="button" id="buttonFour" class="btn btn-success"> Button 4 </button>
-
-    <!--dynamically generate html - look up and confirm how to do it-->
-
+    <script src="script.js"></script>
 </body>
 </html>

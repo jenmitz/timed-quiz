@@ -11,12 +11,19 @@ p {
     margin-top: 5rem;
 }
 
-button {
-    position: inherit;
-}
-
 .jumbotron {
     background-color: white;
+}
+
+.btn {
+    margin: 1rem;
+    margin-left: 4rem;
+    width: 10rem;
+    height: 2.5rem;
+}
+
+#directions {
+    text-align: center;
 }
 
 #highscores {
@@ -28,6 +35,18 @@ button {
 
 #time {
     float: right;
-    padding-right: 1rem;
-    margin-top: -4rem;
+    margin-right: 3rem;
+    margin-top: 2rem;
 }
+
+#timerText {
+    float: right;
+    margin-right: 2rem;
+    margin-top: -2rem;
+}
+
+#startQuiz {
+    width: 10rem;
+    margin-right: 5rem;
+}
+
