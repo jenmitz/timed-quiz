@@ -1,83 +1,54 @@
-// variables
-var startBtn = document.getElementById("startBtn")
-var btnOne = document.getElementById("btnOne");
-var btnTwo = document.getElementById("btnTwo");
-var btnThree = document.getElementById("btnThree");
-var btnFour = document.getElementById("btnFour")
-var correct = document.getElementById("correct");
-var answers = "";
-var time = 0;
-
-// questions & their correct answers
-var questions = [
+const questions = [
     {
         question: "Which of the following is NOT an animal you can keep on your farm?",
-        choices: [
-            {text: "Blue chicken", correct: false}, 
-            {text: "Dinosaur", correct: false}, 
-            {text: "Slime", correct: false}, 
-            {text: "Llama", correct: true}
-        ]
+        choices: ["Blue chicken", "Dinosaur", "Slime", "Llama"],
+        answer: "Llama"
     },
     {
         question: "You need to visit __________ to upgrade your tools.",
-        choices: [
-            {text: "Clint", correct: true}, 
-            {text: "Linus", correct: false}, 
-            {text: "Pierre", correct: false}, 
-            {text: "Harvey", correct: false}
-        ]
+        choices: ["Clint", "Linus", "Pierre", "Harvey"],
+        answer: "Clint"
+        
     },
     {
         question: "Which of these events will never happen overnight on your farm?",
-        choices: [
-            {text: "Meteor crash", correct: false}, 
-            {text: "Runaway animal", correct: true}, 
-            {text: "Visit from a witch", correct: false}, 
-            {text: "Crop fairy", correct: false}
-            ]
+        choices: ["Meteor crash", "Runaway animal", "Visit from a witch", "Crop fairy"],
+        answer: "Runaway animal"
     },
     {
         question: "Which of these is a valid method of finding cooking recipes?",
-        choices: [
-            {text: "Buy them", correct: false}, 
-            {text: "Watch TV every day", correct: true}, 
-            {text: "Fish them up in treasure chests", correct: false}, 
-            {text: "Experiment with food ingredients", correct: false}
-            ]
+        choices: ["Buy them", "Watch TV every day", "Fish them up in treasure chests", "Experiment with food ingredients"],
+        answer: "Watch TV every day"
     },
     {
         question: "What item do you need in order to obtain the galaxy sword?",
-        choices: [
-            {text: "Void egg",correct: false}, 
-            {text: "Rabbit's foot", correct: false}, 
-            {text: "Prismatic shard", correct: true}, 
-            {text: "Iridium bar", correct: false}
-            ]
+        choices: ["Void egg", "Rabbit's foot", "Prismatic shard", "Iridium bar"],
+        answer: "Prismatic shard"
     },
 ];
+
+
+// variables
+const startBtn = document.getElementById("startBtn");
+const btnOne = document.getElementById("btnOne");
+const btnTwo = document.getElementById("btnTwo");
+const btnThree = document.getElementById("btnThree");
+const btnFour = document.getElementById("btnFour");
+const timerStart = document.getElementById("countdown");
+//const penalty = 10000;
+//const maxTime = 60000;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
 // redirect to the quiz when button is clicked
-startBtn.addEventListener("click", goToQuiz);
-
 function goToQuiz () {
     window.location.href = "questions.html";
 };
 
-for(var i = 0; i < questions.length; i++); {
-    var userChoice = window.prompt(questions[i].prompt);
-    if (userChoice === questions[i].choices) {
-        time++
-    } else {
-
-    }
-}
-console.log(userChoice);
+startBtn.addEventListener("click", goToQuiz);
 
 // countdown (60 seconds)
-function countdown () {
+/* function countdown () {
     var countdown = 60000;
     setInterval(60000);
     if (countdown > 0) {
@@ -89,60 +60,72 @@ function countdown () {
     };
 };
 
-console.log(countdown);
-
-// stop timer when timer = 0
-var seconds = setTimeout;
-var t = setInterval(function() {
-    setInterval(countdown, 60000);
-    if (seconds < 0) {
-        document.getElementById("countdown").innerHTML = "Time's up!";
-        clearInterval(t);
-    };
-});
-
-
-function nextQuestion (question) {
-
+startBtn.addEventListener("click", startGame);
+function startGame () {
+    setNextQuestion()
 }
 
-// check if the user selected the correct answer
-function correctWrong () {
-    if (correctAns === false) {
-        // -10 seconds from timer here
-    };
-};
+function selectAnswer () {
+
+} */
+
+const intervalTime = 1; // ms
+const penalty = 10000;
+const maxTime = 60000; // 60 s
+let userResponse = (questions.choices);
+let elapsedTime = 0;
+let correctUserResponse = ["Clint", "Llama", "Runaway animal", "Watch TV everyday", "Prismatic shard"];
+
+// Pretend the user responds at 500 ms:
+setTimeout(() => {
+	console.log('setting solution');
+	userResponse = correctUserResponse;
+}, 50);
+
+
+function checkForSolution() {
+	elapsedTime += intervalTime;
+	if (elapsedTime >= maxTime) {
+		console.log('time is over');
+	} else if (userResponse) {
+		var correct = (userResponse === solution);
+		if (correct) {
+			console.log('YOU WON!!!');
+		} else {
+			console.log('BAD ANSWER YOU SUCK');
+            elapsedTime += penalty;  
+            // shorthand of the below:
+			//elapsedTime = elapsedTime + penalty;
+		}
+		// Clear interval
+	}
+
+	console.log(`Time left: ${maxTime - elapsedTime}`);
+}
+
+// Actual program starts here:
+setInterval(checkForSolution, intervalTime);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* 
-var questions = [
-    {
-      title: "Commonly used data types DO NOT include:",
-      choices: ["strings", "booleans", "alerts", "numbers"],
-      answer: "alerts"
-    },
-    {
-      title: "The condition in an if / else statement is enclosed within ____.",
-      choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-      answer: "parentheses"
-    },
-    ///etc.
-]; 
-*/
+function countdown() {
+    var timerInterval = setInterval(function () {
+      count--;
+      timerEl.innerHTML = count;
+      loadBarEl.style.width = count * loadProgress + "%";
+      if (count === 0) {
+        clearInterval(timerInterval);
+      }
+  
+    }, 1000);
+  };
+//function nextQuestion (question) {
+    // for(var i = 0; i < questions.length; i++); {
+    //     var userChoice = window.prompt(questions[i].prompt);
+    //     if (userChoice === questions[i].choices) {
+    //         time++
+    //     } else {
+    // 
+    //     }
+    // }
+    // console.log(userChoice);
