@@ -17,13 +17,18 @@ p {
 
 .btn {
     margin: 1rem;
-    margin-left: 4rem;
-    width: 10rem;
+    width: 40%;
     height: 2.5rem;
 }
 
-#directions {
+#directions, #currentQuestion {
     text-align: center;
+}
+
+#currentQuestion {
+    margin-left: 20%;
+    margin-right: 20%;
+    width: 100%;
 }
 
 #highscores {
