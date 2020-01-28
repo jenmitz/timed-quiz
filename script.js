@@ -27,105 +27,32 @@ const questions = [
     },
 ];
 
-
-// variables
+// variables linking to html elements
 const startBtn = document.getElementById("startBtn");
 const btnOne = document.getElementById("btnOne");
 const btnTwo = document.getElementById("btnTwo");
 const btnThree = document.getElementById("btnThree");
 const btnFour = document.getElementById("btnFour");
-const timerStart = document.getElementById("countdown");
-//const penalty = 10000;
-//const maxTime = 60000;
+const countdownDisplay = document.getElementById("countdown");
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
 // redirect to the quiz when button is clicked
+document.addEventListener("click", goToQuiz);
+
 function goToQuiz () {
     window.location.href = "questions.html";
 };
 
-startBtn.addEventListener("click", goToQuiz);
-
-// countdown (60 seconds)
-/* function countdown () {
-    var countdown = 60000;
-    setInterval(60000);
-    if (countdown > 0) {
-        for (let i = 0; i > i; i--) {
-            
-        }
-    } else {
-        clearInterval(startTimer);
-    };
-};
-
-startBtn.addEventListener("click", startGame);
-function startGame () {
-    setNextQuestion()
-}
-
-function selectAnswer () {
-
-} */
-
-const intervalTime = 1; // ms
-const penalty = 10000;
-const maxTime = 60000; // 60 s
-let userResponse = (questions.choices);
-let elapsedTime = 0;
-let correctUserResponse = ["Clint", "Llama", "Runaway animal", "Watch TV everyday", "Prismatic shard"];
-
-// Pretend the user responds at 500 ms:
-setTimeout(() => {
-	console.log('setting solution');
-	userResponse = correctUserResponse;
-}, 50);
 
 
-function checkForSolution() {
-	elapsedTime += intervalTime;
-	if (elapsedTime >= maxTime) {
-		console.log('time is over');
-	} else if (userResponse) {
-		var correct = (userResponse === solution);
-		if (correct) {
-			console.log('YOU WON!!!');
-		} else {
-			console.log('BAD ANSWER YOU SUCK');
-            elapsedTime += penalty;  
-            // shorthand of the below:
-			//elapsedTime = elapsedTime + penalty;
-		}
-		// Clear interval
-	}
-
-	console.log(`Time left: ${maxTime - elapsedTime}`);
-}
-
-// Actual program starts here:
-setInterval(checkForSolution, intervalTime);
-
-
-
-function countdown() {
-    var timerInterval = setInterval(function () {
-      count--;
-      timerEl.innerHTML = count;
-      loadBarEl.style.width = count * loadProgress + "%";
-      if (count === 0) {
-        clearInterval(timerInterval);
-      }
-  
-    }, 1000);
-  };
-//function nextQuestion (question) {
-    // for(var i = 0; i < questions.length; i++); {
-    //     var userChoice = window.prompt(questions[i].prompt);
-    //     if (userChoice === questions[i].choices) {
-    //         time++
-    //     } else {
-    // 
-    //     }
-    // }
-    // console.log(userChoice);
+var count = 59;
+var interval = setInterval(function() {
+    document.getElementById("timer").innerHTML = count;
+    count--;
+        if (count === 0) {
+        clearInterval(interval);
+        document.getElementById("timer").innerHTML = "0";
+        alert("Time's up!")
+    }
+}, 1000);
