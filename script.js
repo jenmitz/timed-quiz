@@ -1,4 +1,4 @@
-// questions and answers variable
+// object with questions and answers
 var questions = [
     {
         question: "Which of the following is NOT an animal you can keep on your farm?",
@@ -28,19 +28,16 @@ var questions = [
     },
 ];
 
-// variables linking to html elements
+// variables linking to html elements [not currently being used]
 const startBtn = document.getElementById("startBtn");
 const btnOne = document.getElementById("btnOne");
 const btnTwo = document.getElementById("btnTwo");
 const btnThree = document.getElementById("btnThree");
 const btnFour = document.getElementById("btnFour");
-const countdownDisplay = document.getElementById("countdown");
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
-// redirect to the quiz when button is clicked
-
-
+// redirect to the quiz when button is clicked [working]
 document.addEventListener("click", goToQuiz);
 
 function goToQuiz () {
@@ -48,7 +45,7 @@ function goToQuiz () {
 };
 
 
-// timer countdown w/ alert when time's up
+// timer countdown that's visible to user. alert when time's up [working]
 var count = 59;
 var interval = setInterval(function() {
     document.getElementById("timer").innerHTML = count;
@@ -61,19 +58,30 @@ var interval = setInterval(function() {
 }, 1000);
 
 
-
-// listen for button clicks, then -10 seconds if necessary
+// check if user selected correct answer [WIP / not working]
 var userChoice = [
     {
-        one: btnOne.addEventListener("click", penalty),
-        two: btnTwo.addEventListener("click", penalty),
-        three: btnThree.addEventListener("click", penalty),
-        four: btnFour.addEventListener("click", penalty)
+        one: btnOne.addEventListener("click", penalty()),
+        two: btnTwo.addEventListener("click", penalty()),
+        three: btnThree.addEventListener("click", penalty()),
+        four: btnFour.addEventListener("click", penalty())
     }
 ];
+const solution = questions.answer;
+const correct = (userChoice === questions.answer);
 
 
-// subtract 10 seconds if incorrect answer is chosen
+
+// populate html elements with questions and answers [WIP / not working]
+for (question in questions) {  
+    var one = document.getElementById("btnOne").innerHTML;
+    var two = document.getElementById("btnTwo").innerHTML;
+    var three = document.getElementById("btnThree").innerHTML;
+    var four = document.getElementById("btnFour").innerHTML;
+};
+
+
+// -10 seconds if userChoice is incorrect [WIP / not working]
 function penalty () {
     if (userChoice !== questions.answer) {
         interval -= 10000;
@@ -81,84 +89,24 @@ function penalty () {
 };
 
 
-function nextQuestion () {
-    questions.textContent = questions.question;
-    answer.textContent = question.choices[0];
-    answer.textContent = questions.choices[1];
-    answer.textContent = questions.choices[2];
-    answer.textContent = questions.choices[3];
-};
-
-
-
-for (var value of questions) {
-    console.log(value);
-};
-
-
-// tell the user their score (how many seconds were left)
-function displayScore () {
-    
-}
-
-
-
-
-/////////////////// methods to learn about ////////////////////
+/////////////////// possibilities ////////////////////
 /*
 
-Object.key
-forEach
-for ... in loop
+// possibly use to populate html elements by looping over object "questions"
+
+forEach (for everything, not specific keys/values)
+for ... in loop (target specific keys)
+
 
 */
 ////////////////////// other notes below ///////////////////////
 /* 
 
-Object.entries(questions).forEach(([key, value]) => 
-    document.getElementById(currentQuestion).textContent = value
-);
-
-// buttons
-btnOne.addEventListener("click", rightWrong)
-btnTwo.addEventListener("click", rightWrong)
-btnThree.addEventListener("click", rightWrong)
-btnFour.addEventListener("click", rightWrong)
-
-
-// more variables
-const solution = questions.answer;
-const correct = (userResponse === questions.answer);
-
-
-function timer() {
-    elapsedTime = elapsedTime + intervalTime;
-    if (elapsedTime > maxTime) {
-        console.log('time is over');
-        window.clearInterval(timer);
-    } else if (userResponse) {
-        if (correct) {
-            console.log('YOU WON!!!');
-        } else {
-            console.log('BAD ANSWER YOU SUCK');
-            elapsedTime += penalty;  // shorthand of the below:
-            //elapsedTime = elapsedTime + penalty;
-        }
-        clearInterval(timer);
-    }
-};
-
-
-// actual program starts here
-timer(timer, intervalTime);
-
-
-function rightWrong () {
-    if (correct === true) {
-
-    } else {
-
-    }
-}
+questions.forEach(function (choices, answer) {
+    document.getElementById(currentQuestion)
+    console.log(choices);
+    console.log(item);
+    console.log(penalty);
+});
 
 */

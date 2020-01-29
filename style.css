@@ -33,7 +33,7 @@ p {
 
 #highscores {
     float: left;
-    padding-left: 1rem;
+    padding-left: 1rem; 
     position: absolute;
     margin-top: -4rem;
 }
