@@ -12,40 +12,29 @@
 
     <div class="jumbotron">
 
-        <!--timer here-->
+        <!--timer-->
         <div id="timerText">
             Time left: <div id="timer">60</div>
         </div>
 
-        <!--text for question-->
-        <div id="directions"></div>
-
         <br>
         <br>
 
-        <!--buttons here-->
         <div class="container">  
+            <!--question-->
             <div id="currentQuestion">
-                <p>placeholder text</p>
-            </div>         
+                <p id="questionText"></p>
+            </div> 
+            <!--answer buttons-->
+            <div class="d-flex justify-content-center">
                 <div class="row">
-                    <div class="col-lg-3"></div>
                     <div class="col-lg-6">
-                        <button type="button" id="btnOne" class="btn btn-success"></button>
-                        <button type="button" id="btnTwo" class="btn btn-success"></button>
+                        <button type="button" id="btnOne" class="btn btn-primary"></button>
+                        <button type="button" id="btnTwo" class="btn btn-primary"></button>
+                        <button type="button" id="btnThree" class="btn btn-primary"></button>    
                     </div>
-                    <div class="col-lg-3"></div>
-                </div
-                >
-
-                <div class="row">
-                    <div class="col-lg-3"></div>
-                    <div class="col-lg-6">
-                        <button type="button" id="btnThree" class="btn btn-success"></button>    
-                        <button type="button" id="btnFour" class="btn btn-success"></button>
-                    </div>
-                    <div class="col-lg-3"></div>
                 </div>
+
             </div>
         </div>  
     </div>

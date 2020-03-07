@@ -1,57 +1,61 @@
-h2, p {
-    text-align: center;
-    width: 55%;
-}
 
-h2 {
-    position: absolute;
+body {
+    background-image: url(./thumb-1920-807907.jpg);
+    background-size: auto;
+    font-size: large;
 }
-
 p {
     margin-top: 5rem;
+	text-align: center;
+	width: 100%;
 }
-
-.jumbotron {
-    background-color: white;
+h1 {
+    margin-left: 35%;
+    margin-right: 35%;
+    text-decoration: underline;
 }
-
 .btn {
-    margin: 1rem;
-    width: 40%;
     height: 2.5rem;
+    margin: 5rem;
+    width: 30rem;
 }
-
-#directions, #currentQuestion {
-    text-align: center;
+.container {
+    justify-content: center;
 }
-
-#currentQuestion {
+.jumbotron {
+    background: rgba(255, 255, 255, 0.7);
+	margin: 40px;
+	padding: 80px;
+}
+.d-flex {
     margin-left: 20%;
-    margin-right: 20%;
-    width: 100%;
+    margin-left: 20%;
 }
-
-#highscores {
-    float: left;
-    padding-left: 1rem; 
-    position: absolute;
-    margin-top: -4rem;
-}
-
 #time {
     float: right;
-    margin-right: 3rem;
+    margin-right: 6rem;
     margin-top: 2rem;
 }
-
+#highscores {
+    float: left;
+    margin-top: -3rem;
+    padding-left: 6rem;
+}
+#currentQuestion {
+	text-align: center;
+}
 #timerText {
-    float: right;
-    margin-right: 2rem;
-    margin-top: -2rem;
+	float: right;
+	margin-right: 2rem;
+	margin-top: -2rem;
 }
-
-#startQuiz {
-    width: 10rem;
-    margin-right: 5rem;
+#startBtn {
+    width: 40rem;
+    height: auto;
+    font-size: larger;
 }
-
+#btnOne, #btnTwo, #btnThree {
+    height: 4rem;
+    width: 600px;
+    margin: 10%;
+}
