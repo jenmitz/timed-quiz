@@ -60,7 +60,7 @@ function goToQuiz () {
     const btnFour = document.getElementById("btnFour");
 
 
-    // timer countdown that's visible to user. alert when time's up [working]
+    // timer countdown that's visible to user. alert when time's up
     var count = 59;
     var interval = setInterval(function() {
         document.getElementById("timer").innerHTML = count;
