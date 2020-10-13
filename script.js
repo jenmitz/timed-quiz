@@ -5,7 +5,7 @@ Problem: create a timed quiz - 60 seconds
 shows remaining time and try again option
 * Outputs: answers chosen (wrong or right?) w/ penalties if needed
 * Constraints: n/a
-* Edge cases: no answers given and time runs out
+* Edge cases: quiz started but no answers given and time runs out
 
 > timer countdown:
 - function / start w/ 60000ms, -1000ms interval until reach 0
@@ -17,27 +17,58 @@ try again button that re-runs the program
 
 */
 
-///////////////////////////////////////////////////////////////////////////////////////////////
 
-// redirect to the quiz when button is clicked [working]
-document.getElementById("startBtn").addEventListener("click", goToQuiz);
 
-function goToQuiz () {
+// redirect to the quiz when button is clicked
+document.getElementById("startBtn").addEventListener("click", startQuiz);
+
+// go to the quiz
+function startQuiz() {
     window.location.href = "questions.html";
+
+    var timerText = document.querySelector("#timerText");
+    var countdown = document.querySelector("#countdown");
+    var secondsLeft = 60;
+
+    function timer() {
+        var timerInterval = setInterval(function() {
+            secondsLeft--;
+        timerText.textContent = "Time left: " + secondsLeft;
+
+        if (secondsLeft === 0) {
+            clearInterval(timerInterval);
+            timesUp();
+        };
+
+        }, 60000);
+    };
+
+    // message when time's up
+    function timesUp() {
+        timerText.textContent = " ";
+        if (secondsLeft === 0) {
+            alert("Thy time is up!");
+        };
+        var quizDone = document.createElement("p");
+        countdown.appendChild(quizDone);
+
+    };
+    timer();
+
 
     const questions = [
         {
         question: ("What is your favorite color?"),
         choices: ["Blue", "Yellow", "Green"],
-        answer: ("Blue")
+        answer: ("Yellow")
         }, {
         question: ("What is your quest?"),
-        choices: ["To seek the holy grail", "I seek a man some call 'Tim'", "To kill the Black Knight"],
+        choices: ["To seek the holy grail", "To seek a man called 'Tim'", "To kill the Black Knight"],
         answer: ("To seek the holy grail")
         }, {
         question: ("What is the air-speed velocity of an unladen swallow?"),
-        choices: ["What do you mean? An African or a European Swallow?", "30mph", "I don't know that."],
-        answer: ("What do you mean? An African or a European Swallow?"),
+        choices: ["An African or a European Swallow?", "30mph", "I don't know that."],
+        answer: ("An African or a European Swallow?")
         }
     ];
  
@@ -52,30 +83,34 @@ function goToQuiz () {
         }
     }, 1000);
  */
-let countdown = 60
-let timer = setInterval(function() {
-    if(countdown === 0) return;
-    countdown--;
-    timer.innerHTML = "Time left " + countdown;
-}, 1000);
+// let countdown = 60
+// let timer = setInterval(function() {
+//     if(countdown === 0) return;
+//     countdown--;
+//     timer.innerHTML = "Time left " + countdown;
+// }, 1000);
 
-    // -10 seconds if incorrect answer [WIP / not working]
+    // -10 seconds if incorrect answer
     if (questions.choices !== questions.answer) {
         interval -= 10000;
     };
 
     document.getElementById("startBtn").addEventListener("click", populateHTML)
 
-    populateHTML = () => {
+
+    // use a loop? forEach? 
+    function populateHTML() {
         // populate html elements with questions and answers [WIP / not working]
-        let question = document.getElementById("currentQuestion").append(questions.question);
-        let answerOne = document.getElementById("btnOne").append(questions.answer);
-        let answerTwo = document.getElementById("btnTwo").append(questions.answer);
-        let anwerThree = document.getElementById("btnThree").append(questions.answer);
-        let answerFour = document.getElementById("btnFour").append(questions.answer);
+        let question = document.getElementById("currentQuestion").append(questions, question);
+        let answerOne = document.getElementById("btnOne").append(questions, answerOne);
+        let answerTwo = document.getElementById("btnTwo").append(questions, answerTwo);
+        let answerThree = document.getElementById("btnThree").append(questions, answerThree);
+        let answerFour = document.getElementById("btnFour").append(questions, answerFour);
 
     };
-};
+}; 
+
+
 
 /////////////////// possibilities ////////////////////
 /*
