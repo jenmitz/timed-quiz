@@ -73,22 +73,7 @@ function startQuiz() {
     ];
  
     // timer countdown that's visible to user. alert when time's up
-/*     let interval = setInterval(function() {
-        document.getElementById("timer").innerHTML = count;
-        count--;
-        if (count > 0) {
-            clearInterval(interval);
-            document.getElementById("timer").innerHTML = "0";
-            alert("Time's up!")
-        }
-    }, 1000);
- */
-// let countdown = 60
-// let timer = setInterval(function() {
-//     if(countdown === 0) return;
-//     countdown--;
-//     timer.innerHTML = "Time left " + countdown;
-// }, 1000);
+
 
     // -10 seconds if incorrect answer
     if (questions.choices !== questions.answer) {
@@ -132,4 +117,21 @@ questions.forEach(function (choices, answer) {
     console.log(penalty);
 });
 
+
+/*     let interval = setInterval(function() {
+        document.getElementById("timer").innerHTML = count;
+        count--;
+        if (count > 0) {
+            clearInterval(interval);
+            document.getElementById("timer").innerHTML = "0";
+            alert("Time's up!")
+        }
+    }, 1000);
+ */
+// let countdown = 60
+// let timer = setInterval(function() {
+//     if(countdown === 0) return;
+//     countdown--;
+//     timer.innerHTML = "Time left " + countdown;
+// }, 1000);
 */
