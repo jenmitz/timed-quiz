@@ -21,8 +21,11 @@ h5 {
 }
 .all {
     padding: 5%;
+}.row {
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 3%;
 }
-
 #time {
     float: right;
     margin-right: 6rem;
