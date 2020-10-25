@@ -1,9 +1,9 @@
-// initial page that houses the start button
-// main purpose: initate the quiz on button click and redirect to script-2.js
+// initial page that houses the directions & start button 
+// main purpose: iinitate the quiz on button click and redirect to script-2.js
 
 
 // listen for click event on start button
-$("#startBtn").on("click", startQuiz);
+document.getElementById("startBtn").on("click", startQuiz);
 
 // redirect to questions.html
 function startQuiz() {
